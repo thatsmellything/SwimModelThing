@@ -4,16 +4,16 @@ import javax.swing.JOptionPane;
 import model.ModelSwim;
 public class Controller
 {
-	private ModelSwim swimmmer;
+	private ModelSwim swimmer;
 	
 	public Controller()
 	{
-		swimmer = new ModelSwimm("Jensen", true, true, 25.19);
+		swimmer = new ModelSwim("Jensen", true, true, 25.19);
 	}
 	
 	public void start()
 	{
-		
+		swimmer = new ModelSwim(name, isWet, isSwoll, fFreestyle);
 	}
 
 }
