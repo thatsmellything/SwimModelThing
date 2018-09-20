@@ -7,11 +7,25 @@ public class ModelSwim
 	private boolean isWet;
 	private boolean isSwoll;
 	private double fFreestyle;
-	
+	/**
+	 * Default constructor for after the fact customization
+	 * aka i don't know the info yet
+	 * Initialize the data member with bad values that you will notice and can change later
+	 */
 	public ModelSwim()
 	{
-		
+	this.name = "Jensen";
+	this.isWet = true;
+	this.isSwoll = true;
+	this.fFreestyle = 25.19;
 	}
+	/**
+	 * Better constructor when i know information for the swim program
+	 * @param name
+	 * @param isWet
+	 * @param isSwoll
+	 * @param fFreestyle
+	 */
 	public ModelSwim(String name, boolean isWet, boolean isSwoll, double fFreestyle)
 	{
 		this.name = name;
@@ -20,19 +34,19 @@ public class ModelSwim
 		this.fFreestyle = fFreestyle;
 	}
 	//Getters
-	public String name()
+	public String getName()
 	{
 		return name;
 	}
-	public boolean isWet()
+	public boolean getIsWet()
 	{
 		return isWet;
 	}
-	public boolean isSwoll()
+	public boolean getIsSwoll()
 	{
 		return isSwoll;
 	}
-	public double fFreestyle()
+	public double getfFreestyle()
 	{
 		return fFreestyle;
 	}
