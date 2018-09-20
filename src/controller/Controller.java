@@ -1,8 +1,10 @@
 package controller;
 import java.util.Scanner;
 import javax.swing.JOptionPane;
-import model.ModelSwim;
+import model.ModelSwim;  //Replace "model" with the package
+// you want to access and replace "ModelSwim" with the class filename
 public class Controller
+
 {
 	
 	private ModelSwim swimmer;
@@ -21,30 +23,47 @@ public class Controller
 	{
 		String name = JOptionPane.showInputDialog(null, "What is the persons name?");
 		String isWetStr = JOptionPane.showInputDialog(null, "Are they wet ALL THE TIME?");
-		if (isWetStr.equals("Yes"))
+		if(isWetStr.equals("yes"))
 		{
 			boolean isWet = true;
 		}
-		if (isWetStr.equals("No"))
+		if(isWetStr.equals("No"))
 		{
 			boolean isWet = false;
 		}
 		boolean isWet = isWet;
+		String isSwollString = JOptionPane.showInputDialog(null, "Are they swoll?");
+		if(isSwollString.equals("yes"))
+		{
+			boolean isSwoll = true;
+		}
+		if(isSwollString.equals("No"))
+		{
+			boolean isSwoll = false;
+		}
+		boolean isSwoll = isSwoll;
+		double fFreestyle = Double.parseDouble(JOptionPane.showInputDialog(null, "What is their 50 free time?"));
+		
+		
 		swimmer = new ModelSwim(name, isWet, isSwoll, fFreestyle);
 	}
 	
-	public boolean validBool(String maybeBool)
+	public boolean validDouble(String maybeDouble)
 	{
-		boolean isValid = false;
+		boolean isValid= false;
+		
 		try
 		{
-			String.parseBool(maybeBool);
+			Double.parseDouble(maybeDouble);
 			isValid = true;
 		}
-		catch()
+		catch(NumberFormatException error)
 		{
-			
+			JOptionPane.showMessageDialog(null, "You should type a double value aka a decimal point boi");
 		}
+		return isValid;
+	}
+	
 	}
 
-}
+
