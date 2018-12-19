@@ -12,26 +12,29 @@ public class Controller
 	 *  Whack star star creates a java doc!
 	 *  Builds the instance of the Controller.
 	 */
-	public Controller()
-	{
-		swimmer = new ModelSwim("Jensen", true, true, 25.19);
-	}
+	//public Controller()
+	//{
+	//	meSwimmer = new ModelSwim("Jensen", true, true, 25.19);
+	//}
 	/**
 	 * This is where the program starts calling methods to run the program.
 	 */
 	public void start()
 	{
-		String name = JOptionPane.showInputDialog(null, "What is the persons name?");
-		String isWetStr = JOptionPane.showInputDialog(null, "Are they wet ALL THE TIME?");
-		if(isWetStr.equals("yes"))
+		ModelSwim userSwim = new ModelSwim();
+		//name
+		String userName = JOptionPane.showInputDialog(null, "What is the persons name?");
+		userSwim.setName(userName);
+		
+		String isWet = JOptionPane.showInputDialog(null, "Are they wet ALL THE TIME?");
+		while (!validBool(isWet))
 		{
-			boolean isWet = true;
+			userIsWet = JOptionPane.showInputDialog(null, "Please input true or false");
+			
 		}
-		if(isWetStr.equals("No"))
-		{
-			boolean isWet = false;
-		}
-		boolean isWet = isWet;
+		
+		userSwim.setIsWet(Boolean.parseBoolean(isWet));
+		
 		String isSwollString = JOptionPane.showInputDialog(null, "Are they swoll?");
 		if(isSwollString.equals("yes"))
 		{
@@ -45,7 +48,7 @@ public class Controller
 		double fFreestyle = Double.parseDouble(JOptionPane.showInputDialog(null, "What is their 50 free time?"));
 		
 		
-		swimmer = new ModelSwim(name, isWet, isSwoll, fFreestyle);
+
 	}
 	
 	public boolean validDouble(String maybeDouble)
@@ -60,6 +63,21 @@ public class Controller
 		catch(NumberFormatException error)
 		{
 			JOptionPane.showMessageDialog(null, "You should type a double value aka a decimal point boi");
+		}
+		return isValid;
+	}
+	
+	public boolean validBool(String maybeBool)
+	{
+		boolean isValid = false;
+		try
+		{
+			Boolean.parseBoolean(maybeBool);
+			isValid = true;
+		}
+		catch(IllegalArgumentException error)
+		{
+			JOptionPane.showMessageDialog(null, "Type in a boolean value IE treu or false ");
 		}
 		return isValid;
 	}

@@ -14,10 +14,7 @@ public class ModelSwim
 	 */
 	public ModelSwim()
 	{
-	this.name = "Jensen";
-	this.isWet = true;
-	this.isSwoll = true;
-	this.fFreestyle = 25.19;
+	
 	}
 	/**
 	 * Better constructor when i know information for the swim program
